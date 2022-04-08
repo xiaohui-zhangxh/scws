@@ -1,8 +1,6 @@
-# Scws
+# SCWS(Simple Chinese Word Segmentation)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/scws`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This is a Ruby gem integrated with [scws](https://github.com/hightman/scws/blob/master/API.md) C lib
 
 ## Installation
 
@@ -16,7 +14,7 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ## Usage
 
-TODO: Write usage instructions here
+
 
 ## Development
 
