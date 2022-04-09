@@ -10,3 +10,5 @@
 /ext/scws/*.bundle
 # rspec failure tracking
 .rspec_status
+/ext/**/*.o
+/ext/**/*.bundle

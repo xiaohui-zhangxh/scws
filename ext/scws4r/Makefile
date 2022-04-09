@@ -135,16 +135,16 @@ DISTCLEANDIRS =
 
 extout = 
 extout_prefix = 
-target_prefix = /scws
+target_prefix = /scws4r
 LOCAL_LIBS = 
 LIBS = $(LIBRUBYARG_SHARED)   
-ORIG_SRCS = charset.c crc32.c darray.c lock.c pool.c rule.c scws.c xdb.c xdict.c xtree.c
+ORIG_SRCS = charset.c crc32.c darray.c lock.c pool.c rule.c scws.c scws4r.c xdb.c xdict.c xtree.c
 SRCS = $(ORIG_SRCS) 
-OBJS = charset.o crc32.o darray.o lock.o pool.o rule.o scws.o xdb.o xdict.o xtree.o
-HDRS = $(srcdir)/xdb.h $(srcdir)/pool.h $(srcdir)/xdict.h $(srcdir)/lock.h $(srcdir)/scws.h $(srcdir)/charset.h $(srcdir)/darray.h $(srcdir)/rule.h $(srcdir)/xtree.h $(srcdir)/crc32.h $(srcdir)/config_win32.h
+OBJS = charset.o crc32.o darray.o lock.o pool.o rule.o scws.o scws4r.o xdb.o xdict.o xtree.o
+HDRS = $(srcdir)/xdb.h $(srcdir)/pool.h $(srcdir)/xdict.h $(srcdir)/lock.h $(srcdir)/scws.h $(srcdir)/charset.h $(srcdir)/darray.h $(srcdir)/scws4r.h $(srcdir)/rule.h $(srcdir)/xtree.h $(srcdir)/crc32.h $(srcdir)/config_win32.h
 LOCAL_HDRS = 
-TARGET = scws
-TARGET_NAME = scws
+TARGET = scws4r
+TARGET_NAME = scws4r
 TARGET_ENTRY = Init_$(TARGET_NAME)
 DLLIB = $(TARGET).bundle
 EXTSTATIC = 
@@ -186,7 +186,7 @@ distclean: clean distclean-so distclean-static distclean-rb-default distclean-rb
 realclean: distclean
 install: install-so install-rb
 
-install-so: $(DLLIB) $(TIMESTAMP_DIR)/.sitearchdir.-.scws.time
+install-so: $(DLLIB) $(TIMESTAMP_DIR)/.sitearchdir.-.scws4r.time
 	$(INSTALL_PROG) $(DLLIB) $(RUBYARCHDIR)
 clean-static::
 	-$(Q)$(RM) $(STATIC_LIB)
@@ -198,7 +198,7 @@ do-install-rb:
 do-install-rb-default:
 pre-install-rb-default:
 	@$(NULLCMD)
-$(TIMESTAMP_DIR)/.sitearchdir.-.scws.time:
+$(TIMESTAMP_DIR)/.sitearchdir.-.scws4r.time:
 	$(Q) $(MAKEDIRS) $(@D) $(RUBYARCHDIR)
 	$(Q) $(TOUCH) $@
 
@@ -257,7 +257,7 @@ site-install-rb: install-rb
 	$(Q) $(CC) $(INCFLAGS) $(CPPFLAGS) $(CFLAGS) $(COUTFLAG)$@ -S $(CSRCFLAG)$<
 
 $(TARGET_SO): $(OBJS) Makefile
-	$(ECHO) linking shared-object scws/$(DLLIB)
+	$(ECHO) linking shared-object scws4r/$(DLLIB)
 	-$(Q)$(RM) $(@)
 	$(Q) $(LDSHARED) -o $@ $(OBJS) $(LIBPATH) $(DLDFLAGS) $(LOCAL_LIBS) $(LIBS)
 	$(Q) $(POSTLINK)
