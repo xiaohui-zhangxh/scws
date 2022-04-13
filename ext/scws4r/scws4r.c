@@ -33,6 +33,7 @@ rb_scws_init(VALUE self){
 	scws_t s;
 	s = scws_new();
 	ptr->engine = s;
+	scws_set_charset(ptr->engine, "utf8");
 	return self;
 }
 
@@ -196,9 +197,9 @@ void Init_scws4r(void){
   rb_define_method(cScws, "debug=", rb_scws_set_debug, 1);
   rb_define_method(cScws, "split", rb_scws_send_text, 1);
   rb_define_method(cScws, "tops", rb_scws_get_tops, -1);
-  rb_define_const(cScws, "XDICT_XDB", SCWS_XDICT_XDB);
-  rb_define_const(cScws, "XDICT_MEM", SCWS_XDICT_MEM);
-  rb_define_const(cScws, "XDICT_TXT", SCWS_XDICT_TXT);
+  rb_define_const(cScws, "XDICT_XDB", INT2FIX(SCWS_XDICT_XDB));
+  rb_define_const(cScws, "XDICT_MEM", INT2FIX(SCWS_XDICT_MEM));
+  rb_define_const(cScws, "XDICT_TXT", INT2FIX(SCWS_XDICT_TXT));
   rb_define_const(cScws, "MULTI_SHORT", INT2FIX(SCWS_MULTI_SHORT));
   rb_define_const(cScws, "MULTI_DUALITY", INT2FIX(SCWS_MULTI_DUALITY));
   rb_define_const(cScws, "MULTI_ZMAIN", INT2FIX(SCWS_MULTI_ZMAIN));

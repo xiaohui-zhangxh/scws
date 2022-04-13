@@ -1,4 +1,4 @@
-# SCWS(Simple Chinese Word Segmentation)
+# SCWS(Simple Chinese Word Segmentation) for Ruby
 
 This is a Ruby gem integrated with [scws](https://github.com/hightman/scws/blob/master/API.md) C lib
 
@@ -6,15 +6,34 @@ This is a Ruby gem integrated with [scws](https://github.com/hightman/scws/blob/
 
 Install the gem and add to the application's Gemfile by executing:
 
-    $ bundle add scws
+    $ bundle add scws4r
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install scws
+    $ gem install scws4r
 
 ## Usage
 
-
+```ruby
+2.7.2 :001 > require 'scws4r'
+ => true
+2.7.2 :002 > s = Scws4r.new
+ => #<Scws4r:0x00007fbc2b1bc878>
+2.7.2 :003 > s.load_defaults
+ => false
+2.7.2 :004 > puts s.split('保障房资金压力')
+{"offset"=>0, "idf"=>4.889999866485596, "length"=>6, "text"=>"保障", "attr"=>"vn"}
+{"offset"=>6, "idf"=>0.0, "length"=>3, "text"=>"房", "attr"=>"n"}
+{"offset"=>9, "idf"=>4.880000114440918, "length"=>6, "text"=>"资金", "attr"=>"n"}
+{"offset"=>15, "idf"=>4.900000095367432, "length"=>6, "text"=>"压力", "attr"=>"n"}
+ => nil
+2.7.2 :005 > puts s.tops('保障房资金压力', 10)
+{"times"=>1, "weight"=>4.900000095367432, "word"=>"压力", "attr"=>"n"}
+{"times"=>1, "weight"=>4.889999866485596, "word"=>"保障", "attr"=>"vn"}
+{"times"=>1, "weight"=>4.880000114440918, "word"=>"资金", "attr"=>"n"}
+ => nil
+2.7.2 :006 >
+```
 
 ## Development
 
