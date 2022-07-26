@@ -8,6 +8,7 @@
 /tmp/
 /ext/scws/*.o
 /ext/scws/*.bundle
+/lib/scws4r/scws4r.bundle
 # rspec failure tracking
 .rspec_status
 /ext/**/*.o

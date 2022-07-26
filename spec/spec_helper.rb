@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
-require "scws"
+$LOAD_PATH.unshift File.expand_path('../lib', __dir__)
+$LOAD_PATH.unshift File.expand_path('../ext', __dir__)
+require 'scws4r'
+require 'pry'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

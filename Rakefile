@@ -9,4 +9,12 @@ require "rubocop/rake_task"
 
 RuboCop::RakeTask.new
 
-task default: %i[spec rubocop]
+require "rake/extensiontask"
+
+task build: :compile
+
+Rake::ExtensionTask.new("scws4r") do |ext|
+  ext.lib_dir = "lib/scws4r"
+end
+
+task default: %i[clobber compile spec rubocop]
