@@ -83,7 +83,7 @@ static VALUE
 rb_scws_set_ignore(VALUE self, VALUE r_yes){
 	struct rb_scws_malloc *ptr;
 	Data_Get_Struct(self, struct rb_scws_malloc, ptr);
-	scws_set_rule(ptr->engine, RTEST(r_yes) ? 1 : 0);
+	scws_set_ignore(ptr->engine, RTEST(r_yes) ? 1 : 0);
 }
 
 static VALUE
